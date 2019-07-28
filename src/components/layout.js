@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './layout.css'
 
 const Layout = ({ children }) => (
-  <main className="bg-gray-700 h-screen text-gray-100 flex justify-center items-center">
+  <main className="bg-black h-screen text-gray-100 flex justify-center items-center">
     {children}
   </main>
 )

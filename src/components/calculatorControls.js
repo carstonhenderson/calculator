@@ -4,7 +4,8 @@ import CalculatorButton from './calculatorButton'
 const CalculatorControls = ({ onClick }) => (
   <div>
     <div className="flex justify-between mb-2">
-      <CalculatorButton value="Clear" color="orange" onClick={onClick} />
+      <CalculatorButton value="(" color="blue" onClick={onClick} />
+      <CalculatorButton value=")" color="blue" onClick={onClick} />
       <CalculatorButton value="Calculate" color="green" onClick={onClick} />
     </div>
 

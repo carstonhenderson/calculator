@@ -9,7 +9,7 @@ const Calculator = () => {
 
   const onClick = value => {
     if (!isNaN(value) || ['+', '-', '*', '/', '(', ')', '.'].includes(value)) {
-      if (input === 0) {
+      if (input === '0') {
         setInput(value)
       } else {
         setInput(`${input}${value}`)
@@ -21,12 +21,13 @@ const Calculator = () => {
         setInput(input.slice(0, input.length - 1))
       }
     } else if (value === 'Calculate') {
-      setOutput(eval(input))
+      // eslint-disable-next-line
+      setOutput(parseFloat(eval(input).toFixed(5)).toString())
     }
   }
 
   return (
-    <div className="flex flex-col w-screen max-w-md h-screen justify-between p-2">
+    <div className="flex flex-col w-screen max-w-md h-screen justify-between px-2 py-4">
       <div className="mb-4">
         <CalculatorInput value={input} />
       </div>

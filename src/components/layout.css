@@ -3,3 +3,8 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.button {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+}

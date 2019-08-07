@@ -6,22 +6,38 @@ import CalculatorControls from './calculatorControls'
 const Calculator = () => {
   const [input, setInput] = useState('0')
   const [output, setOutput] = useState(0)
+  const [error, setError] = useState(false)
 
   const handleClick = value => {
     if (!isNaN(value) || ['+', '-', '*', '/', '(', ')', '.'].includes(value)) {
       input === '0' ? setInput(value) : setInput(`${input}${value}`)
+      setError(false)
     } else if (value === 'Back') {
-      input.length === 1 ? setInput('0') : setInput(input.slice(0, input.length - 1))
+      input.length === 1
+        ? setInput('0')
+        : setInput(input.slice(0, input.length - 1))
+      setError(false)
     } else if (value === 'Calculate') {
-      // eslint-disable-next-line
-      setOutput(parseFloat(eval(input).toFixed(5)).toString())
+      try {
+        // eslint-disable-next-line
+        setOutput(parseFloat(eval(input).toFixed(5)).toString())
+      } catch (e) {
+        setError(true)
+      }
     }
   }
 
   return (
     <div className="flex flex-col w-screen max-w-md h-screen justify-between px-2 py-4">
       <div className="mb-4">
-        <CalculatorInput value={input} handleClick={() => setInput('0')} />
+        <CalculatorInput
+          value={input}
+          error={error}
+          handleClick={() => {
+            setInput('0')
+            setError(false)
+          }}
+        />
       </div>
 
       <div className="mb-4">

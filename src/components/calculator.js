@@ -25,7 +25,7 @@ const Calculator = () => {
     } else if (value === 'Calculate') {
       try {
         // eslint-disable-next-line
-        setOutput(parseFloat(eval(input).toFixed(5)).toString())
+        setOutput(parseFloat(eval(input).toFixed(5)).toLocaleString())
         setCalculate(true)
       } catch (e) {
         setError(true)

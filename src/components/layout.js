@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './layout.css'
 
 const Layout = ({ children }) => {
-  const [height, setHeight] = useState(0)
+  const [height, setHeight] = useState('100vh')
 
   useEffect(() => {
     setHeight(window.innerHeight)

@@ -34,7 +34,7 @@ const Calculator = () => {
   }
 
   return (
-    <div className="flex flex-col w-screen max-w-md h-screen justify-between px-2 py-4">
+    <div className="flex flex-col w-screen max-w-md h-full justify-between px-2 py-4">
       <div className="mb-4">
         <CalculatorInput
           value={input}

@@ -6,7 +6,7 @@ const CalculatorButton = ({ value, color, handleClick }) => (
     onClick={() => handleClick(value)}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className={`bg-${color}-600 rounded mx-1 p-4 flex-1 button`}
+    className={`bg-${color}-600 rounded mx-1 p-4 flex-1 button text-lg`}
   >
     {value}
   </motion.button>

@@ -7,20 +7,26 @@ const Calculator = () => {
   const [input, setInput] = useState('0')
   const [output, setOutput] = useState(0)
   const [error, setError] = useState(false)
+  const [calculate, setCalculate] = useState(false)
 
   const handleClick = value => {
     if (!isNaN(value) || ['+', '-', '*', '/', '(', ')', '.'].includes(value)) {
       input === '0' ? setInput(value) : setInput(`${input}${value}`)
+
+      setCalculate(false)
       setError(false)
     } else if (value === 'Back') {
       input.length === 1
         ? setInput('0')
         : setInput(input.slice(0, input.length - 1))
+
+      setCalculate(false)
       setError(false)
     } else if (value === 'Calculate') {
       try {
         // eslint-disable-next-line
         setOutput(parseFloat(eval(input).toFixed(5)).toString())
+        setCalculate(true)
       } catch (e) {
         setError(true)
       }
@@ -41,7 +47,7 @@ const Calculator = () => {
       </div>
 
       <div className="mb-4">
-        <CalculatorOutput value={output} />
+        <CalculatorOutput value={output} calculate={calculate} />
       </div>
 
       <CalculatorControls handleClick={handleClick} />

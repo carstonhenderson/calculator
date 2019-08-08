@@ -42,6 +42,7 @@ const Calculator = () => {
           handleClick={() => {
             setInput('0')
             setError(false)
+            setCalculate(false)
           }}
         />
       </div>
